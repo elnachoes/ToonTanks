@@ -11,7 +11,7 @@ APawnBase::APawnBase()
 	PrimaryActorTick.bCanEverTick = true;
 
 	//setting capsule comp as the root component of the object
-	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("Capsule Collider"));
+	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("Box Collider"));
 	RootComponent = BoxComp;
 
 	//setting BaseMesh as a child component of CapsuleComp
@@ -27,16 +27,22 @@ APawnBase::APawnBase()
 	ProjectileSpawnPoint->SetupAttachment(TurretMesh);
 }
 
-void APawnBase::RotateTurretFunction(FVector LookAtTarget)
+void APawnBase::RotateTurret(FVector LookAtTarget)
 {
 	//Update Turret Mesh rotation to face towards the LookAtTarget passed in from Child Classes.
 	//TurretMesh->SetWorldRotation() 
 
+	FVector LookAtTargetClean = FVector(LookAtTarget.X, LookAtTarget.Y, TurretMesh->GetComponentLocation().Z);
+	FVector StartLocation = TurretMesh->GetComponentLocation();
+
+	FRotator TurretRotation = FVector(LookAtTargetClean - StartLocation).Rotation();
+	TurretMesh->SetWorldRotation(TurretRotation);
 }
 
 void APawnBase::Fire()
 {
 	//Get ProjectileSpawnPoint Location && Rotation -> Spawn Projectile class at Location firing towards Rotation
+	UE_LOG(LogTemp, Warning, TEXT("Fire Condition Success"));
 }
 
 void APawnBase::HandleDestruction()
@@ -51,8 +57,4 @@ void APawnBase::HandleDestruction()
 
 
 }
-
-
-
-
 
