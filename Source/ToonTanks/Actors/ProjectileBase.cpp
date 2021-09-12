@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "ProjectileBase.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
@@ -16,16 +15,16 @@ AProjectileBase::AProjectileBase()
 
 	// Since this does not have a transform, it does not need to set somewhere in the component hirearchy. 
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement"));
-}
-
-// Called when the game starts or when spawned
-void AProjectileBase::BeginPlay()
-{
-	Super::BeginPlay();
 
 	ProjectileMovement->InitialSpeed = MovementSpeed;
 	ProjectileMovement->MaxSpeed = MovementSpeed;
 
 	// This is how long the object will live, once this time is up the destructor will be invoked.
-	InitialLifeSpan = 3.f;
+	InitialLifeSpan = 3.0f;
+}
+
+// Called when the game starts or when spawned.
+void AProjectileBase::BeginPlay()
+{
+	Super::BeginPlay();
 }

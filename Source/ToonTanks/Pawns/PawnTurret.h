@@ -14,7 +14,7 @@ class TOONTANKS_API APawnTurret : public APawnBase
 	GENERATED_BODY()
 
 private:
-	
+	//--VARIABLES--
 	APawnTank* PlayerPawn;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Timing", meta = (AllowPrivateAccess = "true"))

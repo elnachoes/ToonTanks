@@ -15,12 +15,14 @@ class TOONTANKS_API APawnTank : public APawnBase
 	GENERATED_BODY()
 	
 private:
+	//--COMPONENTS--
 	UPROPERTY(VisibleAnywhere, BluePrintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* SpringArm;
 
 	UPROPERTY(VisibleAnywhere, BluePrintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UCameraComponent* Camera;
 
+	//--VARIABLES--
 	FVector MoveDirection;
 	FQuat RotationDirection;
 

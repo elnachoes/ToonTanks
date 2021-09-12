@@ -14,6 +14,7 @@ class TOONTANKS_API AProjectileBase : public AActor
 	GENERATED_BODY()
 	
 private:
+	//--COMPONENTS--
 	UPROPERTY(VisibleAnywhere, BluePrintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UProjectileMovementComponent* ProjectileMovement;
 	
@@ -21,9 +22,10 @@ private:
 	UStaticMeshComponent* ProjectileMesh;
 
 	// This gives us a type-safe way to allow us to add different damage types
-	UPROPERTY(VisibleAnywhere, Category = "Damage")
+	UPROPERTY(VisibleAnywhere, Category = "Damage Type")
 	TSubclassOf<UDamageType> DamageType;
 
+	//VARIABLES
 	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category = "Move", meta = (AllowPrivateAccess = "true"))
 	float MovementSpeed = 1300.f;
 
