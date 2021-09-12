@@ -7,6 +7,7 @@
 #include "ProjectileBase.generated.h"
 
 class UProjectileMovementComponent;
+class UPrimitiveComponent;
 
 UCLASS()
 class TOONTANKS_API AProjectileBase : public AActor
@@ -32,6 +33,9 @@ private:
 	UPROPERTY(EditAnywhere, BluePrintReadOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
 	float Damage = 50;
 
+	//This function dynamically binds itself when the projectile hits something. 
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 public:	
 	// Sets default values for this actor's properties
