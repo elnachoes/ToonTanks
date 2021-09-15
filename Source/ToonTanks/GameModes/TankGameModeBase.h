@@ -26,6 +26,10 @@ public:
 	void ActorDied(AActor* DeadActor);
 
 protected:
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Loop")
+	int32 StartDelay = 3;
+
 	virtual void BeginPlay() override;
 
 	//These functions will be implemented in blueprints only and NOT in the CPP file.

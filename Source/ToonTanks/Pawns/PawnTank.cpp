@@ -28,6 +28,7 @@ void APawnTank::HandleDestruction()
 {
 	//Parent function handles partical effect explosion
 	Super::HandleDestruction();
+	Destroy();
 
 	//TODO: create a new function to handle this 
 }
