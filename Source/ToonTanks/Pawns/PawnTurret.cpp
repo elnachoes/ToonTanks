@@ -31,7 +31,7 @@ void APawnTurret::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!PlayerPawn || ReturnDistanceToPlayer() > FireRange)
+	if (PlayerPawn == nullptr || ReturnDistanceToPlayer() > FireRange)
 	{
 		return;
 	}
@@ -43,7 +43,7 @@ void APawnTurret::CheckFireCondition()
 {
 	// If player == null || or player == dead
 
-	if (!PlayerPawn)
+	if (PlayerPawn == nullptr)
 	{
 		return;
 	}
@@ -58,7 +58,7 @@ void APawnTurret::CheckFireCondition()
 
 float APawnTurret::ReturnDistanceToPlayer()
 {
-	if (!PlayerPawn)
+	if (PlayerPawn == nullptr)
 	{
 		return 0.0f;
 	}

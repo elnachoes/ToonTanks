@@ -37,12 +37,12 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 	AActor* MyOwner = GetOwner();
 
 	// If the owner does not exist get out of the function.
-	if (!MyOwner)
+	if (MyOwner == nullptr)
 	{
 		return;
 	}
 
-	if (OtherActor && OtherActor != this && OtherActor != MyOwner)
+	if (OtherActor != nullptr && OtherActor != this && OtherActor != MyOwner)
 	{
 		// For this function ApplyDamage, you have to give it a AController (see function).
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwner->GetInstigatorController(), this, DamageType);
