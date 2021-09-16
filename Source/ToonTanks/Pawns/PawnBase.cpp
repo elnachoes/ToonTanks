@@ -47,7 +47,7 @@ void APawnBase::Fire()
 {
 	//Get ProjectileSpawnPoint Location && Rotation -> Spawn Projectile class at Location firing towards Rotation
 
-	if (ProjectileClass)
+	if (ProjectileClass != nullptr)
 	{
 		FVector SpawnLocation = ProjectileSpawnPoint->GetComponentLocation();
 		FRotator SpawnRotation = ProjectileSpawnPoint->GetComponentRotation();

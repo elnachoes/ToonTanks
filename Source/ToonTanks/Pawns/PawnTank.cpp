@@ -28,7 +28,7 @@ void APawnTank::HandleDestruction()
 {
 	//Parent function handles partical effect explosion
 	Super::HandleDestruction();
-	Destroy();
+	//Destroy();
 
 	//TODO: create a new function to handle this 
 }
@@ -40,7 +40,7 @@ void APawnTank::Tick(float DeltaTime)
 	Rotate();
 	Move();
 
-	if (PlayerControllerRef)
+	if (PlayerControllerRef != nullptr)
 	{
 		FHitResult TraceHitResult;
 		
