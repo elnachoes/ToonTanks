@@ -8,6 +8,7 @@
 
 class UProjectileMovementComponent;
 class UPrimitiveComponent;
+class UParticleSystemComponent;
 
 UCLASS()
 class TOONTANKS_API AProjectileBase : public AActor
@@ -21,15 +22,21 @@ private:
 	UProjectileMovementComponent* ProjectileMovement;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* ProjectileMesh;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UParticleSystemComponent* ParticleTrail;
+	
 	// This gives us a type-safe way to allow us to add different damage types
 	UPROPERTY(VisibleAnywhere, Category = "Damage Type")
 	TSubclassOf<UDamageType> DamageType;
+
 
 	//VARIABLES
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Move", meta = (AllowPrivateAccess = "true"))
 	float MovementSpeed = 1300.f;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Damage", meta = (AllowPrivateAccess = "true"))
 	float Damage = 50;
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	UParticleSystem* HitParticle;
 
 	//This function dynamically binds itself when the projectile hits something. 
 	UFUNCTION()

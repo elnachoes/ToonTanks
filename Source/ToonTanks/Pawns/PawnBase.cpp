@@ -5,6 +5,7 @@
 #include "Components/SceneComponent.h"
 #include "ToonTanks/Actors/ProjectileBase.h"
 #include "ToonTanks/Components/HealthComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 APawnBase::APawnBase()
@@ -66,6 +67,9 @@ void APawnBase::HandleDestruction()
 	//	-pawn turret inform gamemode that turret died then destroy() self.
 
 	//	-pawn tank inform gamemode player died -> then hide() all components && stop movement input 
+
+	//
+	UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticle, GetActorLocation());
 
 }
 
