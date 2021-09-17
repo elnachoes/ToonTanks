@@ -17,21 +17,18 @@ class TOONTANKS_API APawnBase : public APawn
 	GENERATED_BODY()
 
 private:
+
 	//--COMPONENTS--
 	//general collision for the pawns
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UBoxComponent* BoxComp;
-
 	//static meshs for the base of the tank and the turret
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* BaseMesh;
-	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UStaticMeshComponent* TurretMesh;
-	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	UHealthComponent* HealthComponent;
 
@@ -43,12 +40,10 @@ public:
 
 	// Sets default values for this pawn's properties
 	APawnBase();
-	
 	virtual void HandleDestruction();
 
 protected:
 
 	void RotateTurret(FVector LookAtTarget);
-	
 	void Fire();
 };

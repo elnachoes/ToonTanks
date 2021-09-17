@@ -22,8 +22,6 @@ void APawnTurret::HandleDestruction()
 	//Parent function handles partical effect explosion
 	Super::HandleDestruction();
 	Destroy();
-
-
 }
 
 // Called every frame
@@ -41,9 +39,8 @@ void APawnTurret::Tick(float DeltaTime)
 
 void APawnTurret::CheckFireCondition()
 {
-	// If player == null || or player == dead
-
-	if (PlayerPawn == nullptr)
+	// If player == null or player == dead
+	if (PlayerPawn == nullptr || !PlayerPawn->GetIsPlayerAlive())
 	{
 		return;
 	}

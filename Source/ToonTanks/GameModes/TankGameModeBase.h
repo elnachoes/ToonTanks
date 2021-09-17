@@ -16,6 +16,7 @@ class TOONTANKS_API ATankGameModeBase : public AGameModeBase
 	GENERATED_BODY()
 
 private:
+
 	APawnTank* PlayerTank;
 	int32 TargetTurrets = 0;
 	APlayerControllerBase* PlayerControllerRef;
@@ -25,6 +26,7 @@ private:
 	void HandleGameOver(bool PlayerWon);
 
 public:
+
 	void ActorDied(AActor* DeadActor);
 
 protected:
@@ -33,7 +35,6 @@ protected:
 	int32 StartDelay = 3;
 
 	virtual void BeginPlay() override;
-
 	//These functions will be implemented in blueprints only and NOT in the CPP file.
 	UFUNCTION(BlueprintImplementableEvent)
 	void GameStart();

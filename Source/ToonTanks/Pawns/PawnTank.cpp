@@ -28,9 +28,19 @@ void APawnTank::HandleDestruction()
 {
 	//Parent function handles partical effect explosion
 	Super::HandleDestruction();
-	//Destroy();
+
+	bIsPlayerAlive = false;
+
+	// hides player and stops them from updating every frame so the player wont drift if holding an input at death
+	SetActorHiddenInGame(true);
+	SetActorTickEnabled(false);
 
 	//TODO: create a new function to handle this 
+}
+
+bool APawnTank::GetIsPlayerAlive()
+{
+	return bIsPlayerAlive;
 }
 
 // Called every frame
@@ -50,7 +60,6 @@ void APawnTank::Tick(float DeltaTime)
 
 		RotateTurret(HitLocation);
 	}
-
 }
 
 // Called to bind functionality to input
