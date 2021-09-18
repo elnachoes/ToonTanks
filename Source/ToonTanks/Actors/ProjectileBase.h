@@ -9,6 +9,7 @@
 class UProjectileMovementComponent;
 class UPrimitiveComponent;
 class UParticleSystemComponent;
+class USoundBase;
 
 UCLASS()
 class TOONTANKS_API AProjectileBase : public AActor
@@ -37,6 +38,12 @@ private:
 	float Damage = 50;
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	UParticleSystem* HitParticle;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	USoundBase* HitSound;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	USoundBase* LaunchSound;
 
 	//This function dynamically binds itself when the projectile hits something. 
 	UFUNCTION()

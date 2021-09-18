@@ -10,6 +10,7 @@
 class UBoxComponent;
 class AProjectileBase;
 class UHealthComponent;
+class USoundBase;
 
 UCLASS()
 class TOONTANKS_API APawnBase : public APawn
@@ -37,6 +38,12 @@ private:
 	TSubclassOf<AProjectileBase> ProjectileClass;
 	UPROPERTY(EditAnywhere, Category = "Effects")
 	UParticleSystem* DeathParticle;
+
+	UPROPERTY(EditAnywhere, Category = "Effects")
+	USoundBase* DeathSound;
+
+	//UPROPERTY(EditAnywhere, Category = "Effects")
+	
 
 
 public:
