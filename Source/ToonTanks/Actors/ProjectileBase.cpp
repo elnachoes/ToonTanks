@@ -41,14 +41,13 @@ void AProjectileBase::BeginPlay()
 
 void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
-
+	//GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitShake);
 	AActor* MyOwner = GetOwner();
 
 	// If the owner does not exist get out of the function.
 	if (MyOwner == nullptr)
 	{
-		return;
+		return; 
 	}
 
 	if (OtherActor != nullptr && OtherActor != this && OtherActor != MyOwner)
@@ -56,6 +55,8 @@ void AProjectileBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UP
 		// For this function ApplyDamage, you have to give it a AController (see function).
 		UGameplayStatics::ApplyDamage(OtherActor, Damage, MyOwner->GetInstigatorController(), this, DamageType);
 		UGameplayStatics::SpawnEmitterAtLocation(this, HitParticle, GetActorLocation());
+		UGameplayStatics::PlaySoundAtLocation(this, HitSound, GetActorLocation());
+		GetWorld()->GetFirstPlayerController()->ClientStartCameraShake(HitShake);
 		Destroy();
 	}
 
